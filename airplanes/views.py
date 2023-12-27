@@ -1,6 +1,10 @@
 from typing import Type, Optional
 
 from rest_framework import status
+from rest_framework.authentication import (
+    SessionAuthentication,
+    BasicAuthentication,
+)
 from rest_framework.decorators import action
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -24,6 +28,7 @@ class AirplaneTypeViewSet(ModelViewSet):
     queryset = AirplaneType.objects.all()
     serializer_class = AirplaneTypeSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
 
 
 class AirplaneViewSet(ModelViewSet):
@@ -32,6 +37,7 @@ class AirplaneViewSet(ModelViewSet):
     queryset = Airplane.objects.select_related("airplane_type")
     serializer_class = AirplaneSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
 
     def get_serializer_class(self) -> Type[Serializer]:
         if self.action == "list":
