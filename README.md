@@ -5,7 +5,7 @@ Create a simple web application using the Django framework that lists any items 
 # Installing using GitHub
 ```
 git clone https://github.com/Paul-Starodub/list_of_items
-cd items
+cd list_of_items
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
