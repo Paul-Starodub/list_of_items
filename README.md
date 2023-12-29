@@ -33,11 +33,7 @@ docker-compose up --build
 
 - docker exec -it airport bash 
 - python manage.py createsuperuser
-## Getting access
-You can use following:
-- superuser:
-  - Email: admin@gmail.com
-  - Password: vovk7777
+
 ***
 
 # Stop server
